@@ -3,5 +3,5 @@
 Tolley Research Group
 MAE UCSD 2019
 
-Design controller for commerical swift uArm as part of UCSD graduate robotics capstone project
+Repo for the MAE 204 Final capstone project. Here you'll find the Python code you need to drive the uArm.
 
