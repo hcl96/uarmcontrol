@@ -1,0 +1,517 @@
+
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="client-nojs">
+<head>
+<title>Mobile Manipulation Capstone - Northwestern Mechatronics Wiki</title>
+<meta charset="UTF-8" />
+<meta name="generator" content="MediaWiki 1.18.2" />
+<link rel="shortcut icon" href="/favicon.ico" />
+<link rel="search" type="application/opensearchdescription+xml" href="/opensearch_desc.php" title="Mech (en)" />
+<link rel="EditURI" type="application/rsd+xml" href="http://hades.mech.northwestern.edu/api.php?action=rsd" />
+<link rel="alternate" type="application/atom+xml" title="Mech Atom feed" href="/index.php?title=Special:RecentChanges&amp;feed=atom" />
+<link rel="stylesheet" href="/load.php?debug=false&amp;lang=en&amp;modules=mediawiki.legacy.commonPrint%2Cshared%7Cskins.monobook&amp;only=styles&amp;skin=monobook&amp;*" />
+<!--[if lt IE 5.5000]><link rel="stylesheet" href="/skins/monobook/IE50Fixes.css?303" media="screen" /><![endif]-->
+<!--[if IE 5.5000]><link rel="stylesheet" href="/skins/monobook/IE55Fixes.css?303" media="screen" /><![endif]-->
+<!--[if IE 6]><link rel="stylesheet" href="/skins/monobook/IE60Fixes.css?303" media="screen" /><![endif]-->
+<!--[if IE 7]><link rel="stylesheet" href="/skins/monobook/IE70Fixes.css?303" media="screen" /><![endif]--><meta name="ResourceLoaderDynamicStyles" content="" />
+<link rel="stylesheet" href="/load.php?debug=false&amp;lang=en&amp;modules=site&amp;only=styles&amp;skin=monobook&amp;*" />
+<style>a:lang(ar),a:lang(ckb),a:lang(fa),a:lang(kk-arab),a:lang(mzn),a:lang(ps),a:lang(ur){text-decoration:none}a.new,#quickbar a.new{color:#ba0000}
+
+/* cache key: hadesdb:resourceloader:filter:minify-css:4:c88e2bcd56513749bec09a7e29cb3ffa */
+</style>
+<script src="/load.php?debug=false&amp;lang=en&amp;modules=startup&amp;only=scripts&amp;skin=monobook&amp;*"></script>
+<script>if(window.mw){
+	mw.config.set({"wgCanonicalNamespace": "", "wgCanonicalSpecialPageName": false, "wgNamespaceNumber": 0, "wgPageName": "Mobile_Manipulation_Capstone", "wgTitle": "Mobile Manipulation Capstone", "wgCurRevisionId": 25450, "wgArticleId": 5655, "wgIsArticle": true, "wgAction": "view", "wgUserName": null, "wgUserGroups": ["*"], "wgCategories": [], "wgBreakFrames": false, "wgRestrictionEdit": [], "wgRestrictionMove": []});
+}
+</script><script>if(window.mw){
+	mw.loader.load(["mediawiki.page.startup"]);
+}
+</script>
+</head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-Mobile_Manipulation_Capstone action-view skin-monobook">
+<div id="globalWrapper">
+<div id="column-content"><div id="content">
+	<a id="top"></a>
+	
+	<h1 id="firstHeading" class="firstHeading">Mobile Manipulation Capstone</h1>
+	<div id="bodyContent">
+		<div id="siteSub">From Mech</div>
+		<div id="contentSub"></div>
+		<div id="jump-to-nav">Jump to: <a href="#column-one">navigation</a>, <a href="#searchInput">search</a></div>
+		<!-- start content -->
+<div lang="en" dir="ltr" class="mw-content-ltr"><div class="floatright"><a href="/index.php/File:Youbot-capstone.png" class="image"><img alt="Youbot-capstone.png" src="/images/thumb/5/57/Youbot-capstone.png/384px-Youbot-capstone.png" width="384" height="250" /></a></div>
+<p>This page describes the Capstone Project for the Coursera "Modern Robotics" Specialization.  This project forms the sixth and final course: "Modern Robotics, Course 6: Capstone Project, Mobile Manipulation."  This project draws on pieces of Courses 1 to 5.  
+</p><p><a rel="nofollow" class="external text" href="https://youtu.be/Q1CekpBW6Js"><b>A video summary of this project is given in this YouTube video</b></a>.
+</p><p>Depending on your programming experience, this project should take approximately 20 hours, broken down into three intermediate milestones and your final submission.
+</p><p>You should use the Modern Robotics code library to help you complete this project.
+</p>
+<table id="toc" class="toc"><tr><td><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Introduction.2C_and_the_CSV_Mobile_Manipulation_youBot_V-REP_Scene"><span class="tocnumber">1</span> <span class="toctext">Introduction, and the CSV Mobile Manipulation youBot V-REP Scene</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#Kinematics_of_the_youBot"><span class="tocnumber">2</span> <span class="toctext">Kinematics of the youBot</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#Some_Background_on_Dynamic_Simulations_in_V-REP"><span class="tocnumber">3</span> <span class="toctext">Some Background on Dynamic Simulations in V-REP</span></a>
+<ul>
+<li class="toclevel-2 tocsection-4"><a href="#Rigid_Bodies_in_Scene_6"><span class="tocnumber">3.1</span> <span class="toctext">Rigid Bodies in Scene 6</span></a></li>
+<li class="toclevel-2 tocsection-5"><a href="#Joints_in_Scene_6"><span class="tocnumber">3.2</span> <span class="toctext">Joints in Scene 6</span></a></li>
+<li class="toclevel-2 tocsection-6"><a href="#Gripper"><span class="tocnumber">3.3</span> <span class="toctext">Gripper</span></a></li>
+<li class="toclevel-2 tocsection-7"><a href="#Running_Your_Solution_in_Scene_6"><span class="tocnumber">3.4</span> <span class="toctext">Running Your Solution in Scene 6</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-8"><a href="#Milestones_and_Details"><span class="tocnumber">4</span> <span class="toctext">Milestones and Details</span></a>
+<ul>
+<li class="toclevel-2 tocsection-9"><a href="#Milestone_1:_youBot_Kinematics_Simulator_and_csv_Output"><span class="tocnumber">4.1</span> <span class="toctext">Milestone 1:  youBot Kinematics Simulator and csv Output</span></a></li>
+<li class="toclevel-2 tocsection-10"><a href="#Milestone_2:_Reference_Trajectory_Generation"><span class="tocnumber">4.2</span> <span class="toctext">Milestone 2:  Reference Trajectory Generation</span></a></li>
+<li class="toclevel-2 tocsection-11"><a href="#Milestone_3:_Feedforward_Control"><span class="tocnumber">4.3</span> <span class="toctext">Milestone 3:  Feedforward Control</span></a></li>
+<li class="toclevel-2 tocsection-12"><a href="#Final_Step:_Completing_the_Project_and_Your_Submission"><span class="tocnumber">4.4</span> <span class="toctext">Final Step:  Completing the Project and Your Submission</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-13"><a href="#Other_Things_to_Try"><span class="tocnumber">5</span> <span class="toctext">Other Things to Try</span></a></li>
+</ul>
+</td></tr></table>
+<h2> <span class="mw-headline" id="Introduction.2C_and_the_CSV_Mobile_Manipulation_youBot_V-REP_Scene"> Introduction, and the CSV Mobile Manipulation youBot V-REP Scene </span></h2>
+<p>In your capstone project, you will write software that plans a trajectory for the end-effector of the youBot mobile manipulator (a mobile base with four mecanum wheels and a 5R robot arm), performs odometry as the chassis moves, and performs feedback control to drive the youBot to pick up a block at a specified location, carry it to a desired location, and put it down.  
+</p><p>The final output of your software will be a comma-separated values (csv) text file that specifies the configurations of the chassis and the arm, the angles of the four wheels, and the state of the gripper (open or closed) as a function of time.  This specification of the position-controlled youBot will then be "played" on the V-REP simulator to see if your trajectory succeeds in solving the task.  <a href="/index.php/Writing_a_CSV_File" title="Writing a CSV File"><b>This page</b></a> has information on writing csv files in Python, MATLAB, and Mathematica.
+</p><p><b><a href="/index.php/Getting_Started_with_the_V-REP_Simulator" title="Getting Started with the V-REP Simulator">Make sure you have a working V-REP installation</a></b> (from Course 1 of the <a rel="nofollow" class="external text" href="https://www.coursera.org/specializations/modernrobotics">Coursera specialization</a>).  <a href="/index.php/V-REP_Introduction#Scene_6:_CSV_Mobile_Manipulation_youBot" title="V-REP Introduction"><b>This project uses Scene 6 (CSV Mobile Manipulation youBot) from the V-REP Introduction wiki page</b></a>.  You should download it and test it with its sample csv file, to see what a solution looks like.  (Even if you have downloaded it before, download it again before you begin your project, to make sure you have the most up-to-date version of this scene.) Leave the block's initial and goal configurations as the default.  The default initial block configuration is at <img class="tex" alt="(x,y,\theta) = (1~\text{m}, 0~\text{m}, 0~\text{rad})" src="/images/math/c/e/1/ce1884669139db0006e068c0c3f7bff0.png" /> and the final block configuration is at <img class="tex" alt="(x,y,\theta) = (0~\text{m},-1~\text{m},-\pi/2~\text{rad})" src="/images/math/e/8/3/e83e7452696f11cc5e88e3cb32ba98f5.png" />.
+</p><p>Unlike previous projects, where we used V-REP to simply animate the robot's motion, in this project V-REP will use a physics simulator to simulate the interaction of the youBot with the block.  In other words, if the gripper closes on the block in the wrong position or orientation, the block may simply slide out of the grasp.  The interaction between the robot and the block is governed by a physics simulator, often called a "physics engine," which approximately accounts for friction, mass, inertial, and other properties.  V-REP has different physics engines which you can select, including Bullet and ODE, but ODE is the default for Scene 6.
+</p><p><b>The time between each successive configuration in your csv file is 0.01 seconds (10 milliseconds).</b>  This is an important bit of information, since, unlike the previous visualization scenes which simply animated a csv file with no particular notion of time, the notion of time is critical in a dynamic simulation.
+</p><p>A typical line of your csv file would be something like
+</p>
+<pre>-0.75959, -0.47352, 0.058167, 0.80405, -0.91639, -0.011436, 0.054333, 0.00535, 1.506, -1.3338, 1.5582, 1.6136, 0
+</pre>
+<p>i.e., thirteen values separated by commas, representing
+</p>
+<pre>chassis phi, chassis x, chassis y, J1, J2, J3, J4, J5, W1, W2, W3, W4, gripper state
+</pre>
+<p>where J1 to J5 are the arm joint angles and W1 to W4 are the four wheel angles.
+</p>
+<div class="floatright"><a href="/index.php/File:Youbot-top-view.png" class="image"><img alt="Youbot-top-view.png" src="/images/thumb/6/60/Youbot-top-view.png/211px-Youbot-top-view.png" width="211" height="150" /></a></div>
+<p>Wheels 1 to 4 are numbered as shown in the image to the right.  The ten angles (phi for the chassis, five arm joint angles, and four wheel angles) are in radians and the two chassis position coordinates (x,y) are in meters.  A gripper state of 0 indicates that you want the gripper to be open, and a gripper state of 1 indicates that you want the gripper to be closed.  In practice, the transition from open to closed (or from closed to open) takes up to 0.625 seconds, so any transition from 0 to 1, or 1 to 0, on successive lines in your csv file initiates an action (opening or closing) that will take some time to complete.  You should keep the gripper state at the same value for 63 consecutive lines if you want to ensure that the opening/closing operation completes.  An opening/closing operation terminates when a force limit is reached (e.g., an object is grasped) or the gripper has fully opened or closed.
+</p><p>Your program will take as input:
+</p>
+<ul><li> the initial resting configuration of the cube object (which has a known geometry), represented by a frame attached to the center of the object
+</li><li> the desired final resting configuration of the cube object
+</li><li> the actual initial configuration of the youBot
+</li><li> the reference initial configuration of the youBot (which will generally be different from the actual initial configuration, to allow you to test feedback control)
+</li><li> optionally:  gains for your feedback controller (or these gains can be hard-coded in your program)
+</li></ul>
+<p>The output of your program will be:
+</p>
+<ul><li> a csv file which, when "played" through the V-REP scene, should drive the youBot to successfully pick up the block and put it down at the desired location
+</li><li> a data file containing the 6-vector end-effector error (the twist that would take the end-effector to the reference end-effector configuration in unit time) as a function of time 
+</li></ul>
+<p>Your solution must employ automated planning and control techniques from <i>Modern Robotics</i>.  It should not simply be a manually coded trajectory of the robot.  Your solution should automatically go from the input to the output, with no other human intervention.  In other words, it should automatically produce a working csv file even if the input conditions are changed.
+</p>
+<div class="floatright"><a href="/index.php/File:Capstone-traj1.png" class="image"><img alt="Capstone-traj1.png" src="/images/thumb/f/fc/Capstone-traj1.png/150px-Capstone-traj1.png" width="150" height="97" /></a></div>
+<div class="floatright"><a href="/index.php/File:Capstone-traj2.png" class="image"><img alt="Capstone-traj2.png" src="/images/thumb/6/68/Capstone-traj2.png/150px-Capstone-traj2.png" width="150" height="97" /></a></div>
+<div class="floatright"><a href="/index.php/File:Capstone-traj3.png" class="image"><img alt="Capstone-traj3.png" src="/images/thumb/2/2c/Capstone-traj3.png/150px-Capstone-traj3.png" width="150" height="97" /></a></div>
+<div class="floatright"><a href="/index.php/File:Capstone-traj4.png" class="image"><img alt="Capstone-traj4.png" src="/images/thumb/f/fe/Capstone-traj4.png/150px-Capstone-traj4.png" width="150" height="97" /></a></div>
+<div class="floatright"><a href="/index.php/File:Capstone-traj5.png" class="image"><img alt="Capstone-traj5.png" src="/images/thumb/f/f5/Capstone-traj5.png/150px-Capstone-traj5.png" width="150" height="97" /></a></div>
+<div class="floatright"><a href="/index.php/File:Capstone-traj6.png" class="image"><img alt="Capstone-traj6.png" src="/images/thumb/a/a2/Capstone-traj6.png/150px-Capstone-traj6.png" width="150" height="97" /></a></div>
+<div class="floatright"><a href="/index.php/File:Capstone-traj7.png" class="image"><img alt="Capstone-traj7.png" src="/images/thumb/4/4c/Capstone-traj7.png/150px-Capstone-traj7.png" width="150" height="97" /></a></div>
+<div class="floatright"><a href="/index.php/File:Capstone-traj8.png" class="image"><img alt="Capstone-traj8.png" src="/images/thumb/1/18/Capstone-traj8.png/150px-Capstone-traj8.png" width="150" height="97" /></a></div>
+<p>In your software, you should piece together a reference trajectory for the gripper of the robot, which the robot is then controlled to follow.  A typical reference trajectory would consist of the following eight segments, as illustrated in the eight images to the right (click on any image to make it larger):
+</p>
+<ol><li> A trajectory to move the gripper from its initial configuration to a "standoff" configuration a few cm above the block.
+</li><li> A trajectory to move the gripper down to the grasp position.
+</li><li> Closing of the gripper.
+</li><li> A trajectory to move the gripper back up to the "standoff" configuration.
+</li><li> A trajectory to move the gripper to a "standoff" configuration above the final configuration.
+</li><li> A trajectory to move the gripper to the final configuration of the object.
+</li><li> Opening of the gripper.
+</li><li> A trajectory to move the gripper back to the "standoff" configuration.
+</li></ol>
+<p>Segments 3 and 7 each keep the end-effector fixed in space but, at the beginning of the segment, change the state of the gripper from 0 to 1 or 1 to 0, waiting for the gripper closing to complete.  In other words, each of these segments would consist of at least 63 identical lines of the csv file (as described above), where the first line of the sequence of identical lines has a gripper state different from the previous line in the csv file, to initiate the opening or closing.
+</p><p>Segments 2, 4, 6, and 8 are simple up or down translations of the gripper of a fixed distance.  Good trajectory segments would be cubic or quintic polynomials taking a reasonable amount of time (e.g., one second).  
+</p><p>Trajectory segments 1 and 5 are longer motions requiring motion of the chassis.  Segment 1 is calculated from the desired initial configuration of the gripper to the first standoff configuration, and segment 5 is calculated from the first standoff configuration to the second standoff configuration.  The gripper trajectories could correspond to constant screw motion paths or decoupled Cartesian straight-line motion plus rotational motion, time scaled by third- or fifth-order polynomials (Chapter 9).  
+</p><p>Once the entire gripper reference trajectory has been pieced together from the 8 segments, the actual trajectory of the youBot is obtained by using a Jacobian pseudoinverse position controller as described in Chapter 13.5.  Starting from the actual initial robot configuration (which has some error from the beginning of reference segment 1), your controller drives the gripper to converge to the reference trajectory.  Your feedback controller should eliminate initial error before the gripper attempts to grasp the block, to avoid failure.
+</p><p>To simulate the effect of feedback control, you must write your own motion simulator.  For each timestep, you take the initial configuration of the robot and the wheel and joint speeds calculated by your controller and numerically integrate the effect of these speeds over a timestep to get the new robot configuration.  To calculate the new configuration of the chassis due to the wheel motions, you must implement an odometry step (Chapter 13.4).
+</p><p><br clear="all" />
+</p>
+<h2> <span class="mw-headline" id="Kinematics_of_the_youBot"> Kinematics of the youBot </span></h2>
+<p>The images to the right illustrate the youBot.  Click on them to make them bigger.  The description below is consistent with Exercise 13.33 from the book, if you prefer to see the information there.  All distances are in meters and all angles are in radians.
+</p>
+<div class="thumb tright"><div class="thumbinner" style="width:502px;"><a href="/index.php/File:Yb-book.png" class="image"><img alt="" src="/images/thumb/3/33/Yb-book.png/500px-Yb-book.png" width="500" height="324" class="thumbimage" /></a>  <div class="thumbcaption"><div class="magnify"><a href="/index.php/File:Yb-book.png" class="internal" title="Enlarge"><img src="/skins/common/images/magnify-clip.png" width="15" height="11" alt="" /></a></div>This figure illustrates the arm at its home configuration (all joint angles zero) and the frames {s}, {b}, {0}, and {e}.  For the image on the right, joint axes 1 and 5 (not shown) point upward and joint axes 2, 3, and 4 are out of the screen.  Click to make the image bigger.</div></div></div>
+<div class="thumb tright"><div class="thumbinner" style="width:302px;"><a href="/index.php/File:Yb-base-capstone.png" class="image"><img alt="" src="/images/thumb/c/c8/Yb-base-capstone.png/300px-Yb-base-capstone.png" width="300" height="257" class="thumbimage" /></a>  <div class="thumbcaption"><div class="magnify"><a href="/index.php/File:Yb-base-capstone.png" class="internal" title="Enlarge"><img src="/skins/common/images/magnify-clip.png" width="15" height="11" alt="" /></a></div>A top view of the omnidirectional mobile base.  The forward-backward distance between the wheels is <span class="texhtml" dir="ltr">2<i>l</i> = 0.47</span> meters and the side-to-side distance between wheels is <span class="texhtml" dir="ltr">2<i>w</i> = 0.3</span> meters.  The radius of each wheel is <span class="texhtml" dir="ltr"><i>r</i> = 0.0475</span> meters.  The forward driving and "free sliding" direction <span class="texhtml" dir="ltr">&#947;</span> of each wheel is indicated.</div></div></div>
+<div class="thumb tright"><div class="thumbinner" style="width:302px;"><a href="/index.php/File:Youbot-gripper.png" class="image"><img alt="" src="/images/thumb/2/2e/Youbot-gripper.png/300px-Youbot-gripper.png" width="300" height="282" class="thumbimage" /></a>  <div class="thumbcaption"><div class="magnify"><a href="/index.php/File:Youbot-gripper.png" class="internal" title="Enlarge"><img src="/skins/common/images/magnify-clip.png" width="15" height="11" alt="" /></a></div>The gripper and the end-effector frame {e}, which has an origin midway between the fingers of the gripper.  The minimum opening distance of the gripper is <span class="texhtml" dir="ltr"><i>d</i><sub>1,min</sub> = 2</span> cm, the maximum opening distance is <span class="texhtml" dir="ltr"><i>d</i><sub>1,max</sub> = 7</span> cm, the interior length of the fingers is <span class="texhtml" dir="ltr"><i>d</i><sub>2</sub> = 3.5</span> cm, and the distance from the base of the fingers to the frame {e} is <span class="texhtml" dir="ltr"><i>d</i><sub>3</sub> = 4.3</span> cm.  The axis <img class="tex" alt="\hat{\text{x}}_{\text{e}}" src="/images/math/f/d/4/fd45d80ce9e23b99e06ccaaa8e71615d.png" /> is into the screen.</div></div></div>
+<div class="thumb tright"><div class="thumbinner" style="width:302px;"><a href="/index.php/File:Block-capstone.png" class="image"><img alt="" src="/images/thumb/b/b5/Block-capstone.png/300px-Block-capstone.png" width="300" height="256" class="thumbimage" /></a>  <div class="thumbcaption"><div class="magnify"><a href="/index.php/File:Block-capstone.png" class="internal" title="Enlarge"><img src="/skins/common/images/magnify-clip.png" width="15" height="11" alt="" /></a></div>The object being manipulated is a cube, 5 cm x 5 cm x 5 cm.  The cube's frame {c} is at its center, and the axes are aligned with the edges of the cube.</div></div></div>
+<p>The configuration of the frame {b} of the mobile base, relative to the frame {s} on the floor, is described by the 3-vector <span class="texhtml" dir="ltr"><i>q</i> = (&#981;,<i>x</i>,<i>y</i>)</span> or the <span class="texhtml" dir="ltr"><i>S</i><i>E</i>(3)</span> matrix
+</p><p><img class="tex" alt=" T_{sb}(q) = \left[\begin{array}{cccc} \cos \phi &amp; -\sin \phi &amp; 0 &amp; x \\ \sin \phi &amp; \cos \phi &amp; 0 &amp; y \\ 0 &amp; 0 &amp; 1 &amp; 0.0963 \\ 0 &amp; 0 &amp; 0 &amp; 1 \end{array}\right]" src="/images/math/c/9/0/c9032f3f6bf50c6f77853b04e3c2b542.png" />
+</p><p>where <span class="texhtml" dir="ltr"><i>z</i> = 0.0963</span> meters is the height of the {b} frame above the floor.  The forward-backward distance between the wheels is <span class="texhtml" dir="ltr">2<i>l</i> = 0.47</span> meters and the side-to-side distance between wheels is <span class="texhtml" dir="ltr">2<i>w</i> = 0.3</span> meters.  The radius of each wheel is <span class="texhtml" dir="ltr"><i>r</i> = 0.0475</span> meters.  The wheel numbering and forward driving and "free sliding" direction <span class="texhtml" dir="ltr">&#947;</span> of each wheel is indicated in the figures.
+</p><p>The fixed offset from the chassis frame {b} to the base frame of the arm {0} is
+</p><p><img class="tex" alt=" T_{b0}= \left[\begin{array}{cccc} 1 &amp; 0 &amp; 0 &amp; 0.1662 \\ 0 &amp; 1 &amp; 0 &amp; 0 \\ 0 &amp; 0 &amp; 1 &amp; 0.0026 \\ 0 &amp; 0 &amp; 0 &amp; 1 \end{array}\right]." src="/images/math/3/f/b/3fb287b1dcc4d719b721791e3fb1da6e.png" />
+</p><p>When the arm is at its home configuration (all joint angles zero, as shown in the figure), the end-effector frame {e} relative to the arm base frame {0} is
+</p><p><img class="tex" alt=" M_{0e}= \left[\begin{array}{cccc} 1 &amp; 0 &amp; 0 &amp; 0.033 \\ 0 &amp; 1 &amp; 0 &amp; 0 \\ 0 &amp; 0 &amp; 1 &amp; 0.6546 \\ 0 &amp; 0 &amp; 0 &amp; 1 \end{array}\right]." src="/images/math/e/6/8/e680119b43afbf48ddfe3e328318c260.png" />
+</p><p>When the arm is at its home configuration, the screw axes <img class="tex" alt="\mathcal{B}" src="/images/math/8/d/7/8d7c27e339945f6c96cc234d1248d3fc.png" /> for the five joints are expressed in the end-effector frame {e} as
+</p>
+<ol><li> <img class="tex" alt="\mathcal{B}_1 = (\omega_1,v_1)" src="/images/math/4/2/2/422d4dc06ff069ce2944e17703ad60a4.png" /> where <img class="tex" alt="\omega_1 = (0,0,1), \; v_1 = (0,0.033,0)" src="/images/math/a/a/2/aa219a0a08e4b12ffdd065fe79f6327c.png" />
+</li><li> <img class="tex" alt="\mathcal{B}_2 = (\omega_2,v_2)" src="/images/math/5/c/b/5cb3014fca982e98e4849377d04a0364.png" /> where <img class="tex" alt="\omega_2 = (0,-1,0), \; v_2 = (-0.5076,0,0)" src="/images/math/7/3/3/7332314e1692adee49e7f1fb55681c80.png" />
+</li><li> <img class="tex" alt="\mathcal{B}_3 = (\omega_3,v_3)" src="/images/math/5/6/b/56b3297bc2a272c25f0f0a0895e96e41.png" /> where <img class="tex" alt="\omega_3 = (0,-1,0), \; v_3 = (-0.3526,0,0)" src="/images/math/9/1/7/9179792f7910beaef1c9c63ca4265eaa.png" />
+</li><li> <img class="tex" alt="\mathcal{B}_4 = (\omega_4,v_4)" src="/images/math/2/0/a/20a5b115708ba969921cecc6780d5cce.png" /> where <img class="tex" alt="\omega_4 = (0,-1,0), \; v_4 = (-0.2176,0,0)" src="/images/math/8/d/a/8da1051514f4c3f02549d7e48ac0cdb8.png" />
+</li><li> <img class="tex" alt="\mathcal{B}_5 = (\omega_5,v_5)" src="/images/math/8/8/8/88888ddae35810725ca7c99518d0d2cf.png" /> where <img class="tex" alt="\omega_5 = (0,0,1), \; v_5 = (0,0,0)" src="/images/math/0/4/c/04cc86c9414c537fca1680d5e6291d48.png" />
+</li></ol>
+<p>In this project, for simplicity <b>we assume no joint limits on the five joints of the robot arm.</b> It is recommended, however, that you choose limits on the wheel and joint velocities.  We will come back to this issue later.
+</p><p>The end-effector frame {e} is rigidly attached to the last link and is midway between the tips of the gripper fingers.  The minimum opening distance of the gripper is <span class="texhtml" dir="ltr"><i>d</i><sub>1,min</sub> = 2</span> cm, the maximum opening distance is <span class="texhtml" dir="ltr"><i>d</i><sub>1,max</sub> = 7</span> cm, the interior length of the fingers is <span class="texhtml" dir="ltr"><i>d</i><sub>2</sub> = 3.5</span> cm, and the distance from the base of the fingers to the frame {e} is <span class="texhtml" dir="ltr"><i>d</i><sub>3</sub> = 4.3</span> cm.  When the gripper closes, it closes until it reaches its minimum closing distance or encounters a force large enough to prevent further closing.
+</p><p>The object being manipulated is a cube, 5 cm x 5 cm x 5 cm.  The cube's frame {c} is at the center of the cube, and the axes are aligned with the edges of the cube.  The default initial configuration of the cube is at (x, y, z) = (1, 0, 0.025 ) m in the space frame {s}, and the axes of {c} are aligned with {s}.  The default desired final configuration of the cube is at (x, y, z) = (0, -1, 0.025) m and the axes of {c} are rotated by <span class="texhtml" dir="ltr"> &#8722; &#960; / 2</span> radians about the <img class="tex" alt="\hat{\text{z}}_{\text{s}}" src="/images/math/0/3/0/030642b4757ab7cfeff9259f4b8497b9.png" />-axis of {s}.  These are written in <span class="texhtml" dir="ltr"><i>S</i><i>E</i>(3)</span> as
+</p><p><img class="tex" alt="T_{sc,\text{initial}} = \left[\begin{array}{cccc} 1 &amp; 0 &amp; 0 &amp; 1 \\ 0 &amp; 1 &amp; 0 &amp; 0 \\ 0 &amp; 0 &amp; 1 &amp; 0.025 \\ 0 &amp; 0 &amp; 0 &amp; 1\end{array} \right] " src="/images/math/7/8/f/78fa89f39a1d66535e497be3ef6c423d.png" />
+</p><p><img class="tex" alt="T_{sc,\text{goal}} = \left[\begin{array}{cccc} 0 &amp; 1 &amp; 0 &amp; 0 \\ -1 &amp; 0 &amp; 0 &amp; -1 \\ 0 &amp; 0 &amp; 1 &amp; 0.025 \\ 0 &amp; 0 &amp; 0 &amp; 1\end{array} \right].&#10;" src="/images/math/7/e/9/7e9d9f36b990ac3fc76be4429ca861d5.png" />
+</p><p>Both the initial and final configurations of the cube can be altered in the V-REP scene.  (You can only alter the (x,y) position and the orientation of the cube about the <img class="tex" alt="\hat{\text{z}}_{\text{s}}" src="/images/math/0/3/0/030642b4757ab7cfeff9259f4b8497b9.png" />-axis.)  A good choice for the "standoff" configuration before moving down to the cube and moving back up (the ends of trajectories 1, 4, 5, and 8) is to have the {e} frame a few cm above the {c} frame.
+</p><p><br clear="all" />
+</p>
+<h2> <span class="mw-headline" id="Some_Background_on_Dynamic_Simulations_in_V-REP"> Some Background on Dynamic Simulations in V-REP </span></h2>
+<p><i>This section contains more information about how the V-REP simulation works.  It contains more details than you need for the final project.  You may skip this section and go directly to <a href="/index.php/Mobile_Manipulation_Capstone#Milestones_and_Details" title="Mobile Manipulation Capstone">Milestones and Details</a>.</i>
+</p><p>The V-REP scene used for the capstone project (Scene 6, CSV Mobile Manipulation youBot) is the first scene in which we've used V-REP's ability to simulate bodies in contact.  A "physics engine" (sometimes called a "game engine," since such simulators are often used in video games) simulates the motions of bodies when forces are applied to them, and when they make contact or collide with each other.  Physics engines also handle articulated bodies with joints and other constraints.
+</p><p>V-REP does not have its own physics engine; instead, it bundles and makes available several different physics engines, including Bullet, ODE, Vortex, and Newton.  While these simulators have many features in common, they each have their own strengths and weaknesses, and none is perfect.  A simulator must detect collisions and contacts, simulate restitution ("bounciness") and friction, employ numerical integration to take timesteps to advance the simulation, etc.  All of these are approximate operations with a variety of "magic numbers" and error tolerances, with the goal of making the simulations physically realistic without consuming too much CPU time.
+</p><p>As a result of these approximations, you can often observe bizarre behavior, such as an object spontaneously beginning to bounce on the floor.  In this capstone project, the unexpected behavior may be the object slipping out of the grasp.  These are just realities of dynamic simulation, and it is beyond the scope of this project to delve into the details of dynamic simulation.  If you would like to learn more, you can check out the documentation for <a rel="nofollow" class="external text" href="http://www.ode.org/">ODE</a> and <a rel="nofollow" class="external text" href="http://bulletphysics.org/wordpress/">Bullet</a>.
+</p><p>For block grasping, we have found ODE to give the best results, so that is the default physics engine when you open Scene 6.
+</p>
+<h3> <span class="mw-headline" id="Rigid_Bodies_in_Scene_6"> Rigid Bodies in Scene 6 </span></h3>
+<p>In V-REP, each rigid body is classified as either <b>respondable</b> or <b>non-respondable</b>:
+</p>
+<ul><li> <b>respondable</b>:  The body can make contact and collide with other bodies.
+</li><li> <b>non-respondable</b>:  The body can pass through other bodies.
+</li></ul>
+<p>Thus if a respondable body and a non-respondable body overlap, or if two non-respondable bodies overlap, there is no collision.  If two respondable bodies make contact, however, forces will keep them from penetrating each other.
+</p><p><b>In Scene 6, only the floor, gripper fingers, and the cube are respondable.  All other bodies are non-respondable.</b> This means, for example, that the robot can drive over the cube, and the cube will never move.  (The chassis and wheels do not interact with the cube.)  This also means that the youBot's arm can intersect the mobile base, or arm links can intersect each other.  This is unrealistic, of course, but we are focusing on the interaction of the cube with the gripper and the floor.  
+</p>
+<div class="floatright"><a href="/index.php/File:Cube_dynamic_properties.png" class="image"><img alt="Cube dynamic properties.png" src="/images/thumb/b/b2/Cube_dynamic_properties.png/469px-Cube_dynamic_properties.png" width="469" height="250" /></a></div>
+<p>In addition, each rigid body can be classified as <b>dynamic</b> or <b>non-dynamic</b>:
+</p>
+<ul><li> <b>dynamic</b>:  The body has mass and inertial properties that are used to compute its motion.  For example, as shown in the image to the right, you can click on "Cuboid_initial" to learn about the mass properties of the cube in Scene 6.  You can also learn about material properties, like "friction values."  (The simulated friction coefficient of two bodies in contact is calculated as the product of the friction values of the two materials. This is a simple, but non-physical, way to come up with a friction coefficient for two bodies in contact without having to specify a friction coefficient for every possible pair of materials in contact.)
+</li><li> <b>non-dynamic</b>:  The body's motion is not computed according to dynamics computed by the physics engine.
+</li></ul>
+<p><b>In Scene 6, only the gripper fingers and the cube are dynamic.</b>  In other words, the motions of the fingers and the cube are computed according to the physics engine; other bodies are not part of the dynamic simulation.
+</p><p><br clear="all" />
+</p>
+<h3> <span class="mw-headline" id="Joints_in_Scene_6"> Joints in Scene 6 </span></h3>
+<p>In Scene 6, each joint is either in <b>torque/force mode</b> or <b>passive mode</b>:
+</p>
+<ul><li> <b>torque/force mode</b>:  In torque/force mode, the motion of the joint is controlled by a torque or force applied by an actuator, possibly governed by a PID control law, for example.
+</li><li> <b>passive mode</b>:  In this mode, the joint is kinematically controlled to go to specified positions, without reference to forces or torques.
+</li></ul>
+<p><b>In Scene 6, all joints are in passive mode, except for the two joints controlling the gripper motion.</b>  All passive joints kinematically follow the motions commanded in the csv file.
+</p><p>All joint limits for the youBot's 5R arm are disabled in Scene 6.  This is unrealistic, but respecting joint limits is not part of this capstone project.
+</p>
+<h3> <span class="mw-headline" id="Gripper"> Gripper </span></h3>
+<p>The gripper fingers have joint limits:  each finger of the gripper can travel 2.5 cm.  At maximum opening, the distance between the fingers is 7 cm, and at maximum closing the distance is 2 cm.  The gripper fingers are controlled to always be opening (until force limits are reached or the maximum inter-finger distance is obtained) or always closing (until force limits are reached, as when closed on the cube, or the minimum inter-finger distance is obtained).  
+</p>
+<h3> <span class="mw-headline" id="Running_Your_Solution_in_Scene_6"> Running Your Solution in Scene 6 </span></h3>
+<p>When you load your csv file into Scene 6 for the first time and press "Play File," the robot will jump to its starting configuration, pause for a second, and then begin executing your csv file.  When it jumps like this, the "passive mode" joints are repositioned immediately, but the "torque/force mode" joints (for the gripper fingers) take time to be repositioned.  So you may see some weird behavior as the gripper fingers reposition themselves in the initial fraction of a second when you run your csv file the first time.  If you don't like this, then just run the csv file a second time.  The robot will have been repositioned to the starting point of the csv file before you press "Play File," so the gripper will not have to reposition itself.  
+</p><p><br clear="all" />
+</p>
+<h2> <span class="mw-headline" id="Milestones_and_Details"> Milestones and Details </span></h2>
+<p>Your solution to this project will be a fairly complex piece of software.  To help you structure the project, and to allow you to test individual pieces of your solution, the project has three milestones before you finally complete the project.  You do not turn in your solutions to these milestone subprojects; you only turn in your final project.
+</p>
+<h3> <span class="mw-headline" id="Milestone_1:_youBot_Kinematics_Simulator_and_csv_Output"> Milestone 1:  youBot Kinematics Simulator and csv Output </span></h3>
+<p>You will write a simulator for the kinematics of the youBot.  The main function in the simulator, let's call it <tt>NextState</tt>, is specified by the following inputs and outputs:  
+</p><p><b>Input:</b>
+</p>
+<ul><li> A 12-vector representing the current configuration of the robot (3 variables for the chassis configuration, 5 variables for the arm configuration, and 4 variables for the wheel angles).
+</li><li> A 9-vector of controls indicating the arm joint speeds <img class="tex" alt="\dot{\theta}" src="/images/math/5/a/d/5ad3b29a9f6667a8a71e8465809d09e8.png" /> (5 variables) and the wheel speeds <span class="texhtml" dir="ltr"><i>u</i></span> (4 variables).
+</li><li> A timestep <span class="texhtml" dir="ltr">&#916;<i>t</i></span>.
+</li><li> A positive real value indicating the maximum angular speed of the arm joints and the wheels.  For example, if this value is 12.3, the angular speed of the wheels and arm joints is limited to the range [-12.3 radians/s, 12.3 radians/s].  Any speed in the 9-vector of controls that is outside this range will be set to the nearest boundary of the range.  If you don't want speed limits, just use a very large number.  If you prefer, your function can accept separate speed limits for the wheels and arm joints.
+</li></ul>
+<p><b>Output:</b>  A 12-vector representing the configuration of the robot time <span class="texhtml" dir="ltr">&#916;<i>t</i></span> later.
+</p><p>The function <tt>NextState</tt> is based on a simple first-order Euler step, i.e.,
+</p>
+<ul><li> new arm joint angles = (old arm joint angles) + (joint speeds) * <span class="texhtml" dir="ltr">&#916;<i>t</i></span>
+</li><li> new wheel angles = (old wheel angles) + (wheel speeds) * <span class="texhtml" dir="ltr">&#916;<i>t</i></span>
+</li><li> new chassis configuration is obtained from odometry, as described in Chapter 13.4
+</li></ul>
+<p><b>Testing the <tt>NextState</tt> function:</b> To test your <tt>NextState</tt> function, you should embed it in a program that takes an initial configuration of the youBot and simulates constant controls for one second.  For example, you can set <span class="texhtml" dir="ltr">&#916;<i>t</i></span> to 0.01 seconds and run a loop that calls <tt>NextState</tt> 100 times with constant controls <img class="tex" alt="(u,\dot{\theta})" src="/images/math/8/c/8/8c895af1e5db42249c8ba6d803324751.png" />.  Your program should write a csv file, where each line has 13 values separated by commas (the 12-vector consisting of 3 chassis configuration variables, the 5 arm joint angles, and the 4 wheel angles, plus a "0" for "gripper open") representing the robot's configuration after each integration step.  Then you should load the csv file into the CSV Mobile Manipulation youBot V-REP scene and watch the animation of the constant controls to see if your <tt>NextState</tt> function is working properly (and to check your ability to produce a csv file).
+</p><p><a href="/index.php/Writing_a_CSV_File" title="Writing a CSV File"><b>This page</b></a> has information on writing csv files in Python, MATLAB, and Mathematica.
+</p><p><b>Sample controls to try:</b>  Simulate the following controls for 1 second and watch the results in the V-REP capstone scene (Scene 6).  The controls below are only for the wheels; you can choose the arm joint speeds as you wish.
+</p>
+<ol><li> <span class="texhtml" dir="ltr"><i>u</i> = (10,10,10,10)</span>.  The robot chassis should drive forward (in the <img class="tex" alt="+\hat{\text{x}}_{\text{b}}" src="/images/math/1/e/a/1ea76d392dd5cc95ee5bae1472b1d2dd.png" /> direction) by 0.475 meters.
+</li><li> <span class="texhtml" dir="ltr"><i>u</i> = ( &#8722; 10,10, &#8722; 10,10)</span>.  The robot chassis should slide sideways in the <img class="tex" alt="+\hat{\text{y}}_{\text{b}}" src="/images/math/e/a/a/eaae82aaa28433d2b3faf7e65974d361.png" /> direction by 0.475 meters.
+</li><li> <span class="texhtml" dir="ltr"><i>u</i> = ( &#8722; 10,10,10, &#8722; 10)</span>.  The robot chassis should spin counterclockwise in place by 1.234 radians.
+</li></ol>
+<p>If the chassis motion is not what is described, then something is wrong with your implementation of odometry.  If you are uncertain that your wheel motions and chassis motions correspond to each other, you can check out the five basic mobile base motions shown in a .zip file in <a href="/index.php/V-REP_Introduction#Scene_4:_CSV_Animation_youBot" title="V-REP Introduction">the CSV Animation youBot scene</a>.
+</p><p>You should also check that your wheel angles and arm joint angles are being updated properly, too, but this should be easy.
+</p><p>You should also try specifying a speed limit of 5 for the joints and wheels, then try the same tests above.  Since your commanded controls exceed the speed limit, your function should properly restrict the actual speeds executed by the wheels and joints to the range [-5, 5].  As a result, the chassis should only move half the distance in these tests.
+</p><p><b>Review material:</b>  This capstone project builds on material throughout the textbook "Modern Robotics:  Mechanics, Planning, and Control."  <b><a href="/index.php/Modern_Robotics" title="Modern Robotics">Click here for links to the preprint version of the textbook and the videos.</a></b>  Particularly relevant to this milestone are the following chapters and their associated videos:
+</p>
+<ul><li> <a rel="nofollow" class="external text" href="https://youtu.be/NcOT9hOsceE"><b>Chapter 13.2:  Omnidirectional Wheeled Mobile Robots (Part 1 of 2)</b></a> (6:02)
+</li><li> <a rel="nofollow" class="external text" href="https://youtu.be/B1K-ti5Lqjc"><b>Chapter 13.2:  Omnidirectional Wheeled Mobile Robots (Part 2 of 2)</b></a> (3:00)
+</li><li> <a rel="nofollow" class="external text" href="https://youtu.be/eQ9E0Zvp9jw"><b>Chapter 13.4:  Odometry</b></a> (4:32)
+</li></ul>
+<h3> <span class="mw-headline" id="Milestone_2:_Reference_Trajectory_Generation"> Milestone 2:  Reference Trajectory Generation </span></h3>
+<p>For this milestone you will write a function <tt>TrajectoryGenerator</tt> to generate the reference trajectory for the end-effector frame {e}.  This trajectory consists of eight concatenated trajectory segments, as described above.  Each trajectory segment begins and ends at rest.
+</p><p><b>Input:</b>
+</p>
+<ul><li> The initial configuration of the end-effector in the reference trajectory: <span class="texhtml" dir="ltr"><i>T</i><sub><i>s</i><i>e</i>,initial</sub></span>.
+</li><li> The cube's initial configuration: <span class="texhtml" dir="ltr"><i>T</i><sub><i>s</i><i>c</i>,initial</sub></span>.
+</li><li> The cube's desired final configuration: <span class="texhtml" dir="ltr"><i>T</i><sub><i>s</i><i>c</i>,final</sub></span>.
+</li><li> The end-effector's configuration relative to the cube when it is grasping the cube:  <span class="texhtml" dir="ltr"><i>T</i><sub><i>c</i><i>e</i>,grasp</sub></span>.
+</li><li> The end-effector's standoff configuration above the cube, before and after grasping, relative to the cube:  <span class="texhtml" dir="ltr"><i>T</i><sub><i>c</i><i>e</i>,standoff</sub></span>.  This specifies the configuration of the end-effector {e} relative to the cube frame {c} before lowering to the grasp configuration <span class="texhtml" dir="ltr"><i>T</i><sub><i>c</i><i>e</i>,grasp</sub></span>, for example. 
+</li><li> The number of trajectory reference configurations per 0.01 seconds:  <span class="texhtml" dir="ltr"><i>k</i></span>.  The value <span class="texhtml" dir="ltr"><i>k</i></span> is an integer with a value of 1 or greater.  Although your final animation will be based on snapshots separated by 0.01 seconds in time, the points of your reference trajectory (and your controller servo cycle) can be at a higher frequency.  For example, if you want your controller to operate at 1000 Hz, you should choose <span class="texhtml" dir="ltr"><i>k</i> = 10</span> (10 reference configurations, and 10 feedback servo cycles, per 0.01 seconds).  It is fine to choose <span class="texhtml" dir="ltr"><i>k</i> = 1</span> if you'd like to keep things simple.
+</li></ul>
+<p><b>Outputs:</b>
+</p>
+<ul><li> A representation of the <span class="texhtml" dir="ltr"><i>N</i></span> configurations of the end-effector along the entire concatenated eight-segment reference trajectory.  Each of these <span class="texhtml" dir="ltr"><i>N</i></span> reference points represents a transformation matrix <span class="texhtml" dir="ltr"><i>T</i><sub><i>s</i><i>e</i></sub></span> of the end-effector frame {e} relative to {s} at an instant in time, plus the gripper state (0 or 1).  For example, if your entire eight-segment trajectory takes 30 seconds, for example, you will have approximately <img class="tex" alt="N \approx 30k/0.01" src="/images/math/6/0/d/60d3fc0adb9c7857cc3c70a183b656fa.png" /> sequential reference configurations (perhaps one or a few more, depending on how you treat boundary conditions), each separated by <span class="texhtml" dir="ltr">0.01 / <i>k</i></span> seconds in time.  These reference configurations will be used by your controller.  Your representation of the reference configurations could be anything you want.  If you use an <img class="tex" alt="N \times 13" src="/images/math/d/3/1/d3155c4e6e3729a2c5cba07f40dc0d3e.png" /> matrix, for example, each of the <span class="texhtml" dir="ltr"><i>N</i></span> rows would represent a configuration of the end-effector frame {e} relative to {s} at that instant in time.  Twelve of the 13 entries of a matrix row are the top three rows of the transformation matrix <span class="texhtml" dir="ltr"><i>T</i><sub><i>s</i><i>e</i></sub></span> at that instant of time, i.e., <span class="texhtml" dir="ltr"><i>r</i><sub>11</sub>,<i>r</i><sub>12</sub>,<i>r</i><sub>13</sub>,<i>r</i><sub>21</sub>,<i>r</i><sub>22</sub>,<i>r</i><sub>23</sub>,<i>r</i><sub>31</sub>,<i>r</i><sub>32</sub>,<i>r</i><sub>33</sub>,<i>p</i><sub><i>x</i></sub>,<i>p</i><sub><i>y</i></sub>,<i>p</i><sub><i>z</i></sub></span> from 
+</li></ul>
+<p><img class="tex" alt=" T_{se} = \left[\begin{array}{cccc} r_{11} &amp; r_{12} &amp; r_{13} &amp; p_x \\ r_{21} &amp; r_{22} &amp; r_{23} &amp; p_y \\ r_{31} &amp; r_{32} &amp; r_{33} &amp; p_z \\ 0 &amp; 0 &amp; 0 &amp; 1 \end{array}\right], " src="/images/math/8/d/8/8d8849468ee81d7611a94b2eae3fbc7d.png" /> 
+</p><p>and the 13th entry is the gripper state:  0 = open, 1 = closed.  Keep in mind that opening and closing the gripper takes up to 1 second (initiated when the gripper state transitions from 0 to 1, or 1 to 0, in your csv file), so the trajectories involving opening and closing the gripper should keep the {e} frame stationary while the gripper completes its motion.
+</p>
+<ul><li> A csv file with the entire eight-segment reference trajectory.  Each line of the csv file corresponds to one configuration <span class="texhtml" dir="ltr"><i>T</i><sub><i>s</i><i>e</i></sub></span> of the end-effector, expressed as 13 variables separated by commas.  The 13 variables are, in order,
+</li></ul>
+<pre>r11, r12, r13, r21, r22, r23, r31, r32, r33, px, py, pz, gripper state
+</pre>
+<p>It is up to you to determine the duration of each trajectory segment, but it is recommended that each segment's duration be an integer multiple of 0.01 seconds.  You could automatically choose the duration of each trajectory segment to be equal to the maximum of:  the distance the origin of the {e} frame has to travel divided by some reasonable maximum linear velocity of the end-effector, and the angle the {e} frame must rotate divided by some reasonable maximum angular velocity of the end-effector.  The duration of each trajectory should not be so short as to require unreasonable joint and wheel speeds.
+</p><p>Your <tt>TrajectoryGenerator</tt> function is likely to use either <tt>ScrewTrajectory</tt> or <tt>CartesianTrajectory</tt>, from the Modern Robotics code library, to generate the individual trajectory segments. 
+</p><p><b>Testing your function:</b> We have created a <a href="/index.php/V-REP_Introduction" title="V-REP Introduction"><b>V-REP scene (Scene 8)</b></a> to help you test your <tt>TrajectoryGenerator</tt> function.  This scene reads in your csv file and animates it, showing how the end-effector frame moves as a function of time.  You should verify that your <tt>TrajectoryGenerator</tt> works as you expect before moving on with the project.  <a rel="nofollow" class="external text" href="https://youtu.be/8d_cYwV58lI"><b>This video shows an example of a typical output of your trajectory generator function, as animated by V-REP Scene 8</b></a>.
+</p><p><b>Review material:</b>  This capstone project builds on material throughout the textbook "Modern Robotics:  Mechanics, Planning, and Control."  <b><a href="/index.php/Modern_Robotics" title="Modern Robotics">Click here for links to the preprint version of the textbook and the videos.</a></b>  Particularly relevant to this milestone are the following chapters and their associated videos:
+</p>
+<ul><li> <a rel="nofollow" class="external text" href="https://youtu.be/1JRMqfEm79c"><b>Chapters 9.1 and 9.2:  Point-to-Point Trajectories (Part 1 of 2)</b></a> (5:40)
+</li><li> <a rel="nofollow" class="external text" href="https://youtu.be/0ZqeBEa_MWo"><b>Chapters 9.1 and 9.2:  Point-to-Point Trajectories (Part 2 of 2)</b></a> (3:07)
+</li></ul>
+<h3> <span class="mw-headline" id="Milestone_3:_Feedforward_Control"> Milestone 3:  Feedforward Control </span></h3>
+<p>Now that you are able to simulate the motion of the robot and generate a reference trajectory for the end-effector, you are ready to begin experimenting with feedback control of the mobile manipulator.  You will write the function <tt>FeedbackControl</tt> to calculate the kinematic task-space feedforward plus feedback control law, written both as Equation (11.16) and (13.37) in the textbook:
+</p><p><img class="tex" alt="&#10;\mathcal{V}(t) = [\text{Ad}_{X^{-1} X_d}] \mathcal{V}_d(t) + K_p X_{\text{err}}(t) + K_i \int_0^t X_{\text{err}}(\text{t}) d\text{t}.&#10;" src="/images/math/9/a/0/9a032c056fee4a288c16a2c17c00c319.png" />
+</p><p><b>Input:</b> 
+</p>
+<ul><li> The current <i>actual</i> end-effector configuration <span class="texhtml" dir="ltr"><i>X</i></span> (also written <span class="texhtml" dir="ltr"><i>T</i><sub><i>s</i><i>e</i></sub></span>).
+</li><li> The current end-effector <i>reference</i> configuration <span class="texhtml" dir="ltr"><i>X</i><sub><i>d</i></sub></span> (i.e., <span class="texhtml" dir="ltr"><i>T</i><sub><i>s</i><i>e</i>,<i>d</i></sub></span>).
+</li><li> The end-effector <i>reference</i> configuration at the next timestep in the reference trajectory, <span class="texhtml" dir="ltr"><i>X</i><sub><i>d</i>,next</sub></span> (i.e., <span class="texhtml" dir="ltr"><i>T</i><sub><i>s</i><i>e</i>,<i>d</i>,next</sub></span>), at a time <span class="texhtml" dir="ltr">&#916;<i>t</i></span> later.
+</li><li> The PI gain matrices <span class="texhtml" dir="ltr"><i>K</i><sub><i>p</i></sub></span> and <span class="texhtml" dir="ltr"><i>K</i><sub><i>i</i></sub></span>.
+</li><li> The timestep <span class="texhtml" dir="ltr">&#916;<i>t</i></span> between reference trajectory configurations.
+</li></ul>
+<p><b>Output:</b>
+</p>
+<ul><li> The commanded end-effector twist <img class="tex" alt="\mathcal{V}" src="/images/math/3/f/e/3fe124eca40749361969424373ff56b2.png" /> expressed in the end-effector frame {e}.
+</li></ul>
+<p>To calculate the control law <tt>FeedbackControl</tt>, we need the current actual end-effector configuration <span class="texhtml" dir="ltr"><i>X</i>(<i>q</i>,&#952;)</span>, a function of the chassis configuration <span class="texhtml" dir="ltr"><i>q</i></span> and the arm configuration <span class="texhtml" dir="ltr">&#952;</span>.  The values <span class="texhtml" dir="ltr">(<i>q</i>,&#952;)</span> come directly from the simulation results (Milestone 1).  In other words, assume perfect sensors.
+</p><p>The error twist <span class="texhtml" dir="ltr"><i>X</i><sub>err</sub></span> that takes <span class="texhtml" dir="ltr"><i>X</i></span> to <span class="texhtml" dir="ltr"><i>X</i><sub><i>d</i></sub></span> in unit time is extracted from the 4x4 <span class="texhtml" dir="ltr"><i>s</i><i>e</i>(3)</span> matrix <span class="texhtml" dir="ltr">[<i>X</i><sub>err</sub>] = log(<i>X</i><sup> &#8722; 1</sup><i>X</i><sub><i>d</i></sub>)</span>. <tt>FeedbackControl</tt> also needs to maintain an estimate of the integral of the error, e.g., by adding <span class="texhtml" dir="ltr"><i>X</i><sub>err</sub>&#916;<i>t</i></span> to a running total at each timestep.  The feedforward reference twist <img class="tex" alt="\mathcal{V}_d" src="/images/math/6/5/4/65490aa559214545d993e6794eb19c65.png" /> that takes <span class="texhtml" dir="ltr"><i>X</i><sub><i>d</i></sub></span> to <span class="texhtml" dir="ltr"><i>X</i><sub><i>d</i>,next</sub></span> in time <span class="texhtml" dir="ltr">&#916;<i>t</i></span> is extracted from <img class="tex" alt="[\mathcal{V}_d] = (1/\Delta t) \log(X_{d}^{-1} X_{d,\text{next}})" src="/images/math/1/0/a/10ac484b01fdec266f2b9ec30cdea54d.png" />.  (Make sure you understand why the factor <span class="texhtml" dir="ltr">(1 / &#916;<i>t</i>)</span> is there!)
+</p><p>The output of <tt>FeedbackControl</tt> is the commanded end-effector twist <img class="tex" alt="\mathcal{V}" src="/images/math/3/f/e/3fe124eca40749361969424373ff56b2.png" /> expressed in the end-effector frame {e}.  To turn this into commanded wheel and arm joint speeds <img class="tex" alt="(u,\dot{\theta})" src="/images/math/8/c/8/8c895af1e5db42249c8ba6d803324751.png" />, we use the pseudoinverse of the mobile manipulator Jacobian <span class="texhtml" dir="ltr"><i>J</i><sub><i>e</i></sub>(&#952;)</span>,
+</p><p><img class="tex" alt="&#10;\left[\begin{array}{c} u \\ \dot{\theta} \end{array} \right] = J_e^\dagger(\theta) \mathcal{V}.&#10;" src="/images/math/1/a/b/1ab4bf8959a0d15c78ad497ba742276f.png" />
+</p>
+<div class="thumb tright"><div class="thumbinner" style="width:502px;"><a href="/index.php/File:Yb-fbtest-new.png" class="image"><img alt="" src="/images/thumb/1/13/Yb-fbtest-new.png/500px-Yb-fbtest-new.png" width="500" height="380" class="thumbimage" /></a>  <div class="thumbcaption"><div class="magnify"><a href="/index.php/File:Yb-fbtest-new.png" class="internal" title="Enlarge"><img src="/skins/common/images/magnify-clip.png" width="15" height="11" alt="" /></a></div>This figure illustrates a test for your <tt>FeedbackControl</tt> and Jacobian pseudoinverse functions.  The current robot configuration <span class="texhtml" dir="ltr">(<i>q</i>,&#952;)</span> is shown, as well as the current end-effector configuration <span class="texhtml" dir="ltr"><i>X</i></span>, the current reference end-effector configuration <span class="texhtml" dir="ltr"><i>X</i><sub><i>d</i></sub></span>, and the reference end-effector configuration <span class="texhtml" dir="ltr"><i>X</i><sub><i>d</i>,next</sub></span> a time <span class="texhtml" dir="ltr">&#916;<i>t</i></span> later.</div></div></div>
+<p><b>Testing your <tt>FeedbackControl</tt> function and your Jacobian pseudoinverse:</b> Before moving on, it is a good idea to confirm that you are correctly calculating <img class="tex" alt="\mathcal{V}" src="/images/math/3/f/e/3fe124eca40749361969424373ff56b2.png" /> and the controls <img class="tex" alt="(u,\dot{\theta})" src="/images/math/8/c/8/8c895af1e5db42249c8ba6d803324751.png" /> using the Jacobian pseudoinverse.  Here are some test inputs you should try:
+</p>
+<ul><li> robot configuration:  <img class="tex" alt="(\phi, x, y, \theta_1, \theta_2, \theta_3, \theta_4, \theta_5) = (0, 0, 0, 0, 0, 0.2, -\!1.6, 0)" src="/images/math/8/2/7/8271e8fba032864f805a6b267dcbb0b0.png" />, as illustrated in the figure to the right.  In other words, all configuration variables are zero except arm joint angle 3, which is 0.2 radians, and arm joint angle 4, which is -1.6 radians.
+</li><li> <img class="tex" alt="X_d = \left[\begin{array}{cccc} 0 &amp; 0 &amp; 1 &amp; 0.5 \\ 0 &amp; 1 &amp; 0 &amp; 0 \\ -1 &amp; 0 &amp; 0 &amp; 0.5 \\ 0 &amp; 0 &amp; 0 &amp; 1\end{array}\right]" src="/images/math/f/7/6/f7638a5ccee8724264b136e100113669.png" />
+</li><li> <img class="tex" alt="X_{d,\text{next}} = \left[\begin{array}{cccc} 0 &amp; 0 &amp; 1 &amp; 0.6 \\ 0 &amp; 1 &amp; 0 &amp; 0 \\ -1 &amp; 0 &amp; 0 &amp; 0.3 \\ 0 &amp; 0 &amp; 0 &amp; 1\end{array}\right]" src="/images/math/0/f/5/0f5ebeffd79895677507a4cffaa895f7.png" />
+</li><li> <img class="tex" alt="X = \left[\begin{array}{cccc} 0.170 &amp; 0 &amp; 0.985 &amp; 0.387 \\ 0 &amp; 1 &amp; 0 &amp; 0 \\ -0.985 &amp; 0 &amp; 0.170 &amp; 0.570 \\ 0 &amp; 0 &amp; 0 &amp; 1\end{array}\right]" src="/images/math/c/a/b/cab911fcf56bd18a4a4535e031c03ed9.png" /> (this is calculated from the robot configuration given above)
+</li><li> <span class="texhtml" dir="ltr"><i>K</i><sub><i>p</i></sub></span> and <span class="texhtml" dir="ltr"><i>K</i><sub><i>i</i></sub></span> matrices are zero matrices
+</li><li> <span class="texhtml" dir="ltr">&#916;<i>t</i> = 0.01</span>
+</li></ul>
+<p>With these inputs, your program should give you
+</p>
+<ul><li> <img class="tex" alt="\mathcal{V}_d = (0,0,0,20,0,10)" src="/images/math/b/0/7/b07a6bdec40b9b3959a2c8357597a3c3.png" />
+</li><li> <img class="tex" alt="[\text{Ad}_{X^{-1} X_d}] \mathcal{V}_d = (0,0,0,21.409,0,6.455)" src="/images/math/d/b/8/db8f7e7e69dd4191f67b78b553fcf3e4.png" />
+</li><li> <img class="tex" alt="\mathcal{V} = (0,0,0,21.409,0,6.455)" src="/images/math/4/3/0/4306fe9aff0e3e9daa7fae0b7282da7e.png" />
+</li><li> <img class="tex" alt="X_{\text{err}} \, = (0,0.171,0,0.080,0,0.107)" src="/images/math/c/9/8/c98a88bad193fd91078f59df14ad9dd4.png" />
+</li><li> increment to the numerical integral of the error should be <span class="texhtml" dir="ltr"><i>X</i><sub>err</sub> * &#916;<i>t</i></span>
+</li><li> <img class="tex" alt="J_e = \left[\begin{array}{ccccccccc} 0.030 &amp; -0.030 &amp; -0.030 &amp; 0.030 &amp; -0.985 &amp; 0 &amp; 0 &amp; 0 &amp; 0 \\&#10;0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; -1 &amp; -1 &amp; -1 &amp; 0 \\&#10;-0.005 &amp; 0.005 &amp; 0.005 &amp; -0.005 &amp; 0.170 &amp; 0 &amp; 0 &amp; 0 &amp; 1 \\&#10;0.002 &amp; 0.002 &amp; 0.002 &amp; 0.002 &amp; 0 &amp; -0.240 &amp; -0.214 &amp; -0.218 &amp; 0 \\&#10;-0.024 &amp; 0.024 &amp; 0 &amp; 0 &amp; 0.221 &amp; 0 &amp; 0 &amp; 0 &amp; 0 \\&#10;0.012 &amp; 0.012 &amp; 0.012 &amp; 0.012 &amp; 0 &amp; -0.288 &amp; -0.135 &amp; 0 &amp; 0 \end{array}\right]" src="/images/math/a/2/b/a2b237f5a2fdc397329d85d19810fa53.png" />
+</li><li> <img class="tex" alt="(u,\dot{\theta}) = (157.2,157.2,157.2,157.2,0,-652.9,1398.6,-745.7,0)" src="/images/math/d/6/d/d6d0ba07b98dda9e42f83791b1692d25.png" />
+</li></ul>
+<p>Looking at the figure, these results should make sense to you.  The feedforward twist <img class="tex" alt="\mathcal{V}_d" src="/images/math/6/5/4/65490aa559214545d993e6794eb19c65.png" />, from <span class="texhtml" dir="ltr"><i>X</i><sub><i>d</i></sub></span> to <span class="texhtml" dir="ltr"><i>X</i><sub><i>d</i>,next</sub></span>, should only have nonzero linear components, since the orientation of both frames is the same; these linear components should be in the x and z directions of the <span class="texhtml" dir="ltr"><i>X</i><sub><i>d</i></sub></span> frame; and the component in the x direction should be larger.  Expressing this twist in the current frame of the end-effector at <span class="texhtml" dir="ltr"><i>X</i></span>, <img class="tex" alt="[\text{Ad}_{X^{-1} X_d}] \mathcal{V}_d" src="/images/math/4/4/2/4420e40326924ff525eb7c3f93fbd6f1.png" />, shows us that there are still only x and z components, but the component in the <span class="texhtml" dir="ltr"><i>X</i></span> frame's x direction is a bit larger and the component in the z direction is a bit smaller.  Since the feedback gains are zero, the commanded twist <img class="tex" alt="\mathcal{V}" src="/images/math/3/f/e/3fe124eca40749361969424373ff56b2.png" /> is just <img class="tex" alt="[\text{Ad}_{X^{-1} X_d}] \mathcal{V}_d" src="/images/math/4/4/2/4420e40326924ff525eb7c3f93fbd6f1.png" />. The error <span class="texhtml" dir="ltr"><i>X</i><sub>err</sub></span> (from <span class="texhtml" dir="ltr"><i>X</i></span> to <span class="texhtml" dir="ltr"><i>X</i><sub><i>d</i></sub></span>) shows us that, to drive <span class="texhtml" dir="ltr"><i>X</i></span> to <span class="texhtml" dir="ltr"><i>X</i><sub><i>d</i></sub></span>, we must rotate in the positive direction about <img class="tex" alt="\hat{\text{y}}_{\text{e}}" src="/images/math/f/6/f/f6fbc4b2fad3b637854645e1e8a8ef91.png" /> and move linearly in the <img class="tex" alt="\hat{\text{x}}_{\text{e}}" src="/images/math/f/d/4/fd45d80ce9e23b99e06ccaaa8e71615d.png" /> and <img class="tex" alt="\hat{\text{z}}_{\text{e}}" src="/images/math/5/9/a/59ae2673beecdcbf5070b155dd9a2bdc.png" /> directions.  Finally, the calculated controls <span class="texhtml" dir="ltr"><i>u</i></span> drive the wheels forward at equal speed (so the chassis translates forward) and only arm joints 2, 3, and 4 rotate, since joints 1 and 5 do not help generate <img class="tex" alt="\mathcal{V}" src="/images/math/3/f/e/3fe124eca40749361969424373ff56b2.png" />.  <b>Note:  The joint speeds in this illustrative example are unreasonably large!</b>
+</p><p>If your <span class="texhtml" dir="ltr"><i>K</i><sub><i>p</i></sub></span> matrix is the identity matrix instead of zero, then you should get <img class="tex" alt="\mathcal{V} = (0,0.171,0,21.488,0,6.562)" src="/images/math/0/c/4/0c4d3b053665a14ce6ba2503856ccf66.png" /> and <img class="tex" alt="(u,\dot{\theta}) = (157.5,157.5,157.5,157.5,0,-654.3,1400.9,-746.8,0)" src="/images/math/7/9/f/79f4d56efcbd1d356dfd23dfbbca72d6.png" />.  
+</p><p>If you don't get these results, you should correct your program before moving on.
+</p><p><b>Singularities:</b> If the 6x9 Jacobian matrix <span class="texhtml" dir="ltr"><i>J</i><sub><i>e</i></sub></span> is singular (i.e., its rank drops below 6) or nearly singular, the pseudoinverse algorithm may generate a pseudoinverse <img class="tex" alt="J_e^\dagger" src="/images/math/c/6/c/c6c0fdc28501fa1f6c8405933b152fab.png" /> with unreasonably large entries, which could lead to unacceptably large commanded joint speeds if we ask for even a very small component of a twist in a direction that the near-singularity nearly prevents.  A better behavior for the robot would be to essentially ignore any requested twist components in directions that the near-singularity renders difficult to achieve.  To achieve this in MATLAB and Mathematica, you may wish to explore the tolerance options for the pseudoinverse algorithm.  The tolerance option allows you to specify how close to zero a singular value must be to be treated as zero.  By treating small singular values (that are greater than the default tolerance) as zero, you will avoid having pseudoinverse matrices with unreasonably large entries.  A MATLAB example is shown below:
+</p>
+<pre>&gt;&gt; M = [[2,0];[0,0.00001]]  &#160;% a matrix that's nearly singular
+M =
+   2.000000          0
+          0   0.000010
+ 
+&gt;&gt; s = svd(M) &#160;% confirming that the singular values are 2 and 1e-5, i.e., the 2nd singular value is very small
+s =
+   2.000000
+   0.000010
+
+&gt;&gt; Mp = pinv(M) &#160;% the default MATLAB pseudoinverse treats the 2nd singular value as nonzero; Mp has nonzero entries of 0.5 and 100,000
+Mp =
+   1.0e+05 *
+   0.000005          0
+          0   1.000000
+
+&gt;&gt; Mptol = pinv(M,1e-4) &#160;% tell pinv to treat singular values less than 0.0001 as zero; Mptol has no large entries
+Mptol =
+   0.500000          0
+          0          0
+
+</pre>
+<p>In any case, you should always place "reasonable" limits on the maximum speeds for the robot joints and wheels, to mimic the limitations of a real robot and to prevent the simulated robot from moving wildly.  Other methods have been proposed in the robotics literature to deal with the nearly-singular-Jacobian issue.  Feel free to experiment with other methods if you wish.
+</p><p><b>Why does the robot arm always seem to approach a singularity?</b>  You may notice that your controller tends to make the robot arm approach a singularity (e.g., straighten out) before the wheels move much to help move the end-effector.  Why do you think this is?  Think about the properties of the pseudoinverse.  How does it extract a single solution <img class="tex" alt="x = A^\dagger b" src="/images/math/e/7/3/e736b0958de4701abd69f1e1b2f7b9b4.png" /> to the equation <span class="texhtml" dir="ltr"><i>A</i><i>x</i> = <i>b</i></span> when there are many solutions <span class="texhtml" dir="ltr"><i>x</i></span>?  How would things change if the wheels had a much larger radius?
+</p><p><b>Implementing joint limits to avoid self-collisions and singularities (optional, but recommended):</b> Until now, we have not implemented joint limits, so you can easily command robot configurations that result in self-collision, i.e., the arm links intersect each other or the mobile base.  You can also command the robot arm to come close to a singularity, e.g., by making the angles of joints 3 and 4 zero (or nearly zero).  Singularities like this can cause a problem when you are tracking trajectories specified in terms of the motion of the end-effector (see the discussion above).
+</p><p>To avoid these problems, you can implement joint limits.  For example, you could constrain joints 3 and 4 to always be less than <span class="texhtml" dir="ltr"> &#8722; 0.2</span> radians (or so).  The arm will avoid singularities occurring when joints 3 or 4 are at the zero angle, but it will still be able to perform many useful tasks, such as the block pick-and-place task of this capstone.  To avoid self-collisions, you can use the arm joint angle sliders in <a href="/index.php/V-REP_Introduction#Scene_3:_Interactive_youBot" title="V-REP Introduction">Scene 3:  Interactive youBot</a> to approximately find the joint-angle combinations that avoid self-collision.  Your approximation should be conservative, meaning that allowed configurations are never in self-collision.  But it should not be so conservative that the arm's workspace is overly constrained, preventing the robot from doing useful work.  
+</p><p>With these joint limits, you could write a function called <tt>testJointLimits</tt> to return a list of joint limits that are violated given the robot arm's configuration <span class="texhtml" dir="ltr">&#952;</span>.
+</p><p>You should make sure that your robot's initial configuration satisfies all the joint limits.  Then, each time you calculate your wheel and arm joint speeds <img class="tex" alt="(u,\dot{\theta})" src="/images/math/8/c/8/8c895af1e5db42249c8ba6d803324751.png" /> using the pseudoinverse <img class="tex" alt="J_e^\dagger" src="/images/math/c/6/c/c6c0fdc28501fa1f6c8405933b152fab.png" />, use <tt>testJointLimits</tt> to check if the new configuration at a time <span class="texhtml" dir="ltr">&#916;<i>t</i></span> later will violate the joint limits.  If so, you should recalculate the controls <img class="tex" alt="(u,\dot{\theta})" src="/images/math/8/c/8/8c895af1e5db42249c8ba6d803324751.png" />, by first changing the Jacobian <span class="texhtml" dir="ltr"><i>J</i><sub><i>e</i></sub></span> to indicate that the offending joint(s) should not be used---the robot must use other joints (if possible) to generate the desired end-effector twist <img class="tex" alt="\mathcal{V}" src="/images/math/3/f/e/3fe124eca40749361969424373ff56b2.png" />.  To recalculate the controls, change each column of <span class="texhtml" dir="ltr"><i>J</i><sub><i>e</i></sub></span> corresponding to an offending joint to all zeros.  This indicates that moving these joints causes no motion at the end-effector, so the pseudoinverse solution will not request any motion from these joints.
+</p><p>This method is simple, but there are other ways to avoid joint limits.  If you use a different approach, be sure to document it in your final README file.
+</p><p><b>The full program:</b> Now write your full program, according to the input specifications at the top of this page.  Your program should first generate a reference trajectory using <tt>TrajectoryGenerator</tt> and set the initial robot configuration, a 13-vector as described earlier on this page:
+</p>
+<pre>chassis phi, chassis x, chassis y, J1, J2, J3, J4, J5, W1, W2, W3, W4, gripper state
+</pre>
+<p>Now the program enters a loop that loops through the reference trajectory generated by <tt>TrajectoryGenerator</tt>.  If the reference trajectory has <span class="texhtml" dir="ltr"><i>N</i></span> reference configurations, the loop runs <span class="texhtml" dir="ltr"><i>N</i> &#8722; 1</span> times.  For example, the 10th time through the loop, the controller uses the 10th configuration of the reference trajectory as <span class="texhtml" dir="ltr"><i>X</i><sub><i>d</i></sub></span> and the 11th configuration as <span class="texhtml" dir="ltr"><i>X</i><sub><i>d</i>,next</sub></span> to calculate the feedforward twist <img class="tex" alt="\mathcal{V}_d" src="/images/math/6/5/4/65490aa559214545d993e6794eb19c65.png" />.  
+</p><p>Each time through the loop, you 
+</p>
+<ul><li> calculate the control law using <tt>FeedbackControl</tt> and generate the wheel and joint controls using <img class="tex" alt="J_e^\dagger(\theta)" src="/images/math/6/7/6/676737b105ecf9043643799e55a433de.png" />; 
+</li><li> send the controls, configuration, and timestep to <tt>NextState</tt> to calculate the new configuration; 
+</li><li> store every <span class="texhtml" dir="ltr"><i>k</i></span>th configuration for later animation (note that the reference trajectory has <span class="texhtml" dir="ltr"><i>k</i></span> reference configurations per 0.01 second step, as described in Milestone 2; you may choose <span class="texhtml" dir="ltr"><i>k</i> = 1</span> for simplicity); and 
+</li><li> store every <span class="texhtml" dir="ltr"><i>k</i></span>th <span class="texhtml" dir="ltr"><i>X</i><sub>err</sub></span> 6-vector, so you can later plot the evolution of the error over time.
+</li></ul>
+<p>Once the program has completed all iterations of the loop, it should write out the csv file of configurations.  If the total time of motion of the youBot is 15 seconds, your csv file should have 1500 lines (or 1501 lines), corresponding to 0.01 seconds between each configuration.  Load the csv file into the CSV Mobile Manipulation youBot scene (Scene 6) to see the results.  Your program should also generate a file with the log of the <span class="texhtml" dir="ltr"><i>X</i><sub>err</sub></span> 6-vector as a function of time, suitable for plotting by your favorite plotting software.
+</p><p><b>Testing feedforward control:</b> You should make sure feedforward control works as you expect before testing feedback control.  Choose an initial configuration of the robot that puts the end-effector exactly at the configuration at the beginning of the reference trajectory.  Run your program with <span class="texhtml" dir="ltr"><i>K</i><sub><i>p</i></sub> = <i>K</i><sub><i>i</i></sub> = 0</span>, i.e., feedforward control only.  This should result in a csv file which, when played through the V-REP capstone scene, drives the robot to pick up the block and put it down at the desired configuration.  (Or at least it should come very close to doing so!  Small numerical error in the integration will be fixed when you add a feedback controller.)  If not, time to start debugging!  Your end-effector reference trajectory must be correct, if you already tested Milestone 2.  So now you have to figure out why the wheel and arm controls your feedforward controller and Jacobian pseudoinverse are generating do not drive the end-effector along the reference trajectory.  (You could try removing joint speed limits if these are preventing the robot from following the planned trajectory, or increase the time of the trajectory so large joint speeds are not needed to follow the trajectory.)
+</p><p>You should also try starting the end-effector with some initial error from the reference trajectory, but still only use feedforward control.  See how the end-effector moves under these circumstances.  Does it make sense to you?
+</p><p>Do not move on with the project until your feedforward control works as you expect.  Otherwise the effects of PI feedback control will only further confuse the situation.
+</p><p><b>The physics engine in V-REP:</b>  By default, Scene 6 (the capstone mobile manipulation scene) uses a simulation timestep of dt = 10 ms and the physics engine ODE.  You should keep the timestep at 10 ms for simulated time to be correct, and we have found ODE to yield more easily understood results than Bullet for Scene 6.  But you are welcome to try different physics engines if you'd like; specify your choice in the V-REP GUI.  Keep in mind that simulation of bodies in contact is computationally intensive, and approximate solution methods could lead to unexpected behavior, like the block slipping in the grasp.  We don't have a suggested "fix" for this; if you want to learn about how physics engines work, and the various approximations they make, you are encouraged to consult the documentation for <a rel="nofollow" class="external text" href="http://www.ode.org/">ODE</a> and <a rel="nofollow" class="external text" href="http://bulletphysics.org/wordpress/">Bullet</a>.
+</p><p><b>Review material:</b>  This capstone project builds on material throughout the textbook "Modern Robotics:  Mechanics, Planning, and Control."  <b><a href="/index.php/Modern_Robotics" title="Modern Robotics">Click here for links to the preprint version of the textbook and the videos.</a></b>  Particularly relevant to this milestone are the following chapters and their associated videos:
+</p>
+<ul><li> <a rel="nofollow" class="external text" href="https://youtu.be/27jUrkFdyks"><b>Chapter 4.1.2:  Product of Exponentials Formula in the End-Effector Frame</b></a> (4:41)
+</li><li> <a rel="nofollow" class="external text" href="https://youtu.be/69HeL2XvL9Y"><b>Chapter 5.1.2:  Body Jacobian</b></a> (4:51)
+</li><li> <a rel="nofollow" class="external text" href="https://youtu.be/WuhEEidkes8"><b>Chapter 11.3:  Motion Control with Velocity Inputs (Part 3 of 3)</b></a> (4:29)
+</li><li> <a rel="nofollow" class="external text" href="https://youtu.be/1MgpqD7v2x0"><b>Chapter 13.5:  Mobile Manipulation</b></a> (6:19)
+</li></ul>
+<h3> <span class="mw-headline" id="Final_Step:_Completing_the_Project_and_Your_Submission"> Final Step:  Completing the Project and Your Submission </span></h3>
+<p>Now that feedforward control is working, you are ready to complete your project.  Use the default initial and goal configurations for the cube in the capstone V-REP scene, i.e., the initial cube configuration is at <img class="tex" alt="(x,y,\theta) = (1~\text{m}, 0~\text{m}, 0~\text{rad})" src="/images/math/c/e/1/ce1884669139db0006e068c0c3f7bff0.png" /> and the final cube configuration is at <img class="tex" alt="(x,y,\theta) = (0~\text{m},-1~\text{m},-\pi/2~\text{rad})" src="/images/math/e/8/3/e83e7452696f11cc5e88e3cb32ba98f5.png" />. Let the initial configuration of the end-effector reference trajectory be at
+</p><p><img class="tex" alt="&#10;T_{se} = \left[\begin{array}{cccc} &#10;0 &amp; 0 &amp; 1 &amp; 0 \\ &#10;0 &amp; 1 &amp; 0 &amp; 0 \\&#10;-1 &amp; 0 &amp; 0 &amp; 0.5 \\&#10; 0 &amp; 0 &amp; 0 &amp; 1 \end{array}\right]&#10;" src="/images/math/7/3/2/7326109e4beafc4d0908d33d1057fb54.png" />
+</p><p>Choose an initial configuration of the youBot so that the end-effector has at least 30 degrees of orientation error and 0.2 m of position error.  Try executing the feedforward controller (<span class="texhtml" dir="ltr"><i>K</i><sub><i>p</i></sub> = <i>K</i><sub><i>i</i></sub> = 0</span>) and play the resulting csv file through the V-REP capstone scene to see what happens.
+</p><p>Now add a positive-definite diagonal proportional gain matrix <span class="texhtml" dir="ltr"><i>K</i><sub><i>p</i></sub></span> while keeping the integral gains zero.  You can keep the gains "small" initially so the behavior is not much different from the case of feedforward control only.  As you increase the gains, can you see some corrective effect due to the proportional control?
+</p><p>Eventually you will have to design a controller so that essentially all initial error is driven to zero by the end of the first trajectory segment; otherwise, your grasp operation may fail.
+</p><p>Once you get good behavior with feedforward-plus-P control, try experimenting with other variants:  P control only; PI control only; and feedforward-plus-PI control.  
+</p><p><b>What to submit:</b> You will submit a single .zip file of a directory with the following contents:
+</p>
+<ol><li> <b>A file called README.txt or README.pdf.</b>  This file should briefly explain your software and your results.  If you needed to follow a different approach to solve the problem than the one described above, explain why and explain your solution method.  If you encountered anything surprising, or if there is something you still don't understand, or if you think an important point is neglected in the description of the project on this page, explain it.  If you implemented singularity avoidance, joint limit avoidance, or any other enhancement over the basic project description given on this page, explain your method.  You may also wish to include more results in the three results directories described below, showing the results when using your enhancements vs. when you don't use your enhancements, to highlight the value of your enhancements.
+</li><li> <b>Your commented code in a directory called "code."</b> Your code should be lightly commented, so it is clear to the reader what the code is doing. No need to go overboard, but keep in mind your reviewer may not be fluent in your programming language. Your code comments must include an example of how to use the code. Only turn in functions that you wrote or modified; you don't need to turn in other MR functions that your code uses. If your code is in MATLAB or Python, just turn in the source files (text files) with your functions. If your code is in Mathematica, turn in (a) your .nb notebook file and (b) a .pdf printout of your code, so a reviewer can read your code without having to have the Mathematica software. 
+</li><li> <b>A directory called "results" with the results of your program.</b> This directory should contain three directories:  one titled "best," one titled "overshoot," and one titled "newTask."  The directories "best" and "overshoot" both solve a pick-and-place task where the initial and final configurations of the cube are at the default locations in the capstone V-REP scene, i.e., the initial block configuration is at <img class="tex" alt="(x,y,\theta) = (1~\text{m}, 0~\text{m}, 0~\text{rad})" src="/images/math/c/e/1/ce1884669139db0006e068c0c3f7bff0.png" /> and the final block configuration is at <img class="tex" alt="(x,y,\theta) = (0~\text{m},-1~\text{m},-\pi/2~\text{rad})" src="/images/math/e/8/3/e83e7452696f11cc5e88e3cb32ba98f5.png" />.  The directory "newTask" should have different initial and final block configurations, which you are free to choose yourself. In all cases, the initial configuration of the end-effector should have at least 30 degrees of orientation error and 0.2 m of position error from the first configuration on the reference trajectory.  The directory "best" should contain results using a well-tuned controller, either feedforward-plus-P or feedforward-plus-PI.  The convergence exhibited by the controller does not necessarily have to be fast (in fact, it is more interesting if the convergence is not too fast, so the transient response is clearly visible), but the motion should be smooth, with no overshoot, and very little error by partway through trajectory segment 1.  The directory "overshoot" should contain the results using a less-well-tuned controller, one that exhibits overshoot and a bit of oscillation.  Nonetheless, the error should be eliminated before the end of trajectory segment 1.  Your controller for "overshoot" will likely be feedforward-plus-PI or just PI.  You can use any controller to solve the "newTask" task.  In each of the three directories, give:
+<ol><li> A very brief README.txt or README.pdf file that indicates the type of controller, the feedback gains, and any other useful information about the results.  For the "newTask" directory, indicate the initial and goal configurations for the cube.
+</li><li> The V-REP .csv file produced by your program when it is called with the input from the log file.
+</li><li> A video of your .csv file being animated by the V-REP scene.
+</li><li> The <span class="texhtml" dir="ltr"><i>X</i><sub>err</sub></span> data file produced by your program.
+</li><li> A plot of the six elements of <span class="texhtml" dir="ltr"><i>X</i><sub>err</sub></span> as a function of time, showing the convergence to zero.  This plot should <b>not</b> require any special software (e.g., MS excel) to be viewable.  In other words, you should save it as a .pdf or other freely-viewable format.
+</li><li> A log file showing your program being called with the input.  In MATLAB, for example, this log file could be something like: 
+</li></ol>
+</li></ol>
+<pre>&gt;&gt; runscript
+Generating animation csv file.
+Writing error plot data.
+Done.
+&gt;&gt;
+</pre>
+<dl><dd><dl><dd><dl><dd>In this case, the file/function "runscript" contains the data for the program and actually invokes the program, and you should include the file "runscript".  It is recommended that your program provide some simple feedback to the user, like "Generating animation csv file.  Writing error plot data.  Done." or similar, but it is not strictly necessary.
+</dd></dl>
+</dd></dl>
+</dd></dl>
+<p><b>Project grading.</b>  Your project will be graded on the clarity and correctness of your README files and your code.  Your "results" directories will be graded on their correctness, including the quality of your videos and whether your error plots show reasonable convergence to zero.
+</p><p><b>If you succeed in this project, congratulations!</b>  You have integrated concepts from all five previous Modern Robotics courses in a fairly sophisticated piece of software.
+</p>
+<h2> <span class="mw-headline" id="Other_Things_to_Try"> Other Things to Try </span></h2>
+<p>You could imagine other approaches to solving the mobile manipulator pick-and-place problem, instead of just planning a trajectory for the end-effector and using feedback control to track it.  For example, you could use an obstacle-avoiding motion planner to plan a reference trajectory for the entire robot, not just the end-effector.  You could incorporate joint limits for the robot arm.  You could use a weighted pseudoinverse, instead of the standard pseudoinverse, to indicate a preference to use wheel or joint motions.  You could actively avoid singularities of the arm.  You could decide to keep the mobile base stationary during trajectory segments 2, 4, 6, and 8.
+</p><p>If you have other ideas on better ways to approach the mobile manipulation problem, feel free to mention them in a discussion prompt or your main README file.
+</p><p>If you are interested, you could delve more deeply into V-REP, for example by changing the respondability or dynamic properties of rigid bodies.  If you make the youBot chassis respondable, the youBot's chassis can push the block around.
+</p><p><b>For fun:</b> See if you can plan and execute a trajectory for the robot arm that causes the gripper to throw the block to a desired landing point!
+</p>
+<!-- 
+NewPP limit report
+Preprocessor node count: 1738/1000000
+Post-expand include size: 0/2097152 bytes
+Template argument size: 0/2097152 bytes
+Expensive parser function count: 0/100
+-->
+
+<!-- Saved in parser cache with key hadesdb:pcache:idhash:5655-0!1!0!!en!2!* and timestamp 20190418070728 -->
+</div><div class="printfooter">
+Retrieved from "<a href="http://hades.mech.northwestern.edu/index.php?title=Mobile_Manipulation_Capstone&amp;oldid=25450">http://hades.mech.northwestern.edu/index.php?title=Mobile_Manipulation_Capstone&amp;oldid=25450</a>"</div>
+		<div id='catlinks' class='catlinks catlinks-allhidden'></div>		<!-- end content -->
+				<div class="visualClear"></div>
+	</div>
+</div></div>
+<div id="column-one">
+	<div id="p-cactions" class="portlet">
+		<h5>Views</h5>
+		<div class="pBody">
+			<ul>
+				<li id="ca-nstab-main" class="selected"><a href="/index.php/Mobile_Manipulation_Capstone" title="View the content page [c]" accesskey="c">Page</a></li>
+				<li id="ca-talk" class="new"><a href="/index.php?title=Talk:Mobile_Manipulation_Capstone&amp;action=edit&amp;redlink=1" title="Discussion about the content page [t]" accesskey="t">Discussion</a></li>
+				<li id="ca-viewsource"><a href="/index.php?title=Mobile_Manipulation_Capstone&amp;action=edit" title="This page is protected.&#10;You can view its source [e]" accesskey="e">View source</a></li>
+				<li id="ca-history"><a href="/index.php?title=Mobile_Manipulation_Capstone&amp;action=history" title="Past revisions of this page [h]" accesskey="h">History</a></li>
+			</ul>
+		</div>
+	</div>
+	<div class="portlet" id="p-personal">
+		<h5>Personal tools</h5>
+		<div class="pBody">
+			<ul>
+				<li id="pt-login"><a href="/index.php?title=Special:UserLogin&amp;returnto=Mobile+Manipulation+Capstone" title="You are encouraged to log in; however, it is not mandatory [o]" accesskey="o">Log in</a></li>
+			</ul>
+		</div>
+	</div>
+	<div class="portlet" id="p-logo">
+		<a title="Visit the main page" style="background-image: url(/images/nxr_logo.jpg);" href="http://nxr.northwestern.edu/"></a>
+	</div>
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+	<div class="generated-sidebar portlet" id="p-navigation">
+		<h5>Navigation</h5>
+		<div class='pBody'>
+			<ul>
+				<li id="n-mainpage"><a href="/index.php/Main_Page" title="Visit the main page [z]" accesskey="z">Main Page</a></li>
+				<li id="n-recentchanges"><a href="/index.php/Special:RecentChanges" title="A list of recent changes in the wiki [r]" accesskey="r">Recent changes</a></li>
+				<li id="n-help"><a href="/index.php/Help:Contents" title="The place to find out">Help</a></li>
+				<li id="n-Lab-Inventory"><a href="/index.php/Lab_Inventory">Lab Inventory</a></li>
+				<li id="n-File-List"><a href="/index.php/Special:ListFiles">File List</a></li>
+				<li id="n-Most-Popular-Pages"><a href="/index.php/Special:PopularPages">Most Popular Pages</a></li>
+			</ul>
+		</div>
+	</div>
+	<div id="p-search" class="portlet">
+		<h5><label for="searchInput">Search</label></h5>
+		<div id="searchBody" class="pBody">
+			<form action="/index.php" id="searchform">
+				<input type='hidden' name="title" value="Special:Search"/>
+				<input type="search" name="search" title="Search Mech [f]" accesskey="f" id="searchInput" />
+				<input type="submit" name="go" value="Go" title="Go to a page with this exact name if exists" id="searchGoButton" class="searchButton" />&#160;
+				<input type="submit" name="fulltext" value="Search" title="Search the pages for this text" id="mw-searchButton" class="searchButton" />
+			</form>
+		</div>
+	</div>
+	<div class="portlet" id="p-tb">
+		<h5>Toolbox</h5>
+		<div class="pBody">
+			<ul>
+				<li id="t-whatlinkshere"><a href="/index.php/Special:WhatLinksHere/Mobile_Manipulation_Capstone" title="A list of all wiki pages that link here [j]" accesskey="j">What links here</a></li>
+				<li id="t-recentchangeslinked"><a href="/index.php/Special:RecentChangesLinked/Mobile_Manipulation_Capstone" title="Recent changes in pages linked from this page [k]" accesskey="k">Related changes</a></li>
+				<li id="t-specialpages"><a href="/index.php/Special:SpecialPages" title="A list of all special pages [q]" accesskey="q">Special pages</a></li>
+				<li><a href="/index.php?title=Mobile_Manipulation_Capstone&amp;printable=yes" rel="alternate">Printable version</a></li>
+				<li id="t-permalink"><a href="/index.php?title=Mobile_Manipulation_Capstone&amp;oldid=25450" title="Permanent link to this revision of the page">Permanent link</a></li>
+			</ul>
+		</div>
+	</div>
+</div><!-- end of the left (by default at least) column -->
+<div class="visualClear"></div>
+<div id="footer">
+	<div id="f-poweredbyico">
+		<a href="http://www.mediawiki.org/"><img src="/skins/common/images/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" width="88" height="31" /></a>
+	</div>
+	<ul id="f-list">
+		<li id="lastmod"> This page was last modified on 11 January 2019, at 16:35.</li>
+		<li id="viewcount">This page has been accessed 10,829 times.</li>
+		<li id="privacy"><a href="/index.php/Mech:Privacy_policy" title="Mech:Privacy policy">Privacy policy</a></li>
+		<li id="about"><a href="/index.php/Mech:About" title="Mech:About">About Mech</a></li>
+		<li id="disclaimer"><a href="/index.php/Mech:General_disclaimer" title="Mech:General disclaimer">Disclaimers</a></li>
+	</ul>
+</div>
+</div>
+<script>if(window.mw){
+	mw.loader.load(["mediawiki.user", "mediawiki.util", "mediawiki.page.ready", "mediawiki.legacy.wikibits", "mediawiki.legacy.ajax"]);
+}
+</script>
+<script src="/load.php?debug=false&amp;lang=en&amp;modules=site&amp;only=scripts&amp;skin=monobook&amp;*"></script>
+<script>if(window.mw){
+	mw.user.options.set({"ccmeonemails":0,"cols":80,"date":"default","diffonly":0,"disablemail":0,"disablesuggest":0,"editfont":"default","editondblclick":0,"editsection":1,"editsectiononrightclick":0,"enotifminoredits":0,"enotifrevealaddr":0,"enotifusertalkpages":1,"enotifwatchlistpages":0,"extendwatchlist":0,"externaldiff":0,"externaleditor":0,"fancysig":0,"forceeditsummary":0,"gender":"unknown","hideminor":0,"hidepatrolled":0,"highlightbroken":1,"imagesize":2,"justify":0,"math":1,"minordefault":0,"newpageshidepatrolled":0,"nocache":0,"noconvertlink":0,"norollbackdiff":0,"numberheadings":0,"previewonfirst":0,"previewontop":1,"quickbar":5,"rcdays":7,"rclimit":50,"rememberpassword":0,"rows":25,"searchlimit":20,"showhiddencats":0,"showjumplinks":1,"shownumberswatching":1,"showtoc":1,"showtoolbar":1,"skin":"monobook","stubthreshold":0,"thumbsize":2,"underline":2,"uselivepreview":0,"usenewrc":0,"watchcreations":0,"watchdefault":0,"watchdeletion":0,"watchlistdays":3,"watchlisthideanons":0,
+	"watchlisthidebots":0,"watchlisthideliu":0,"watchlisthideminor":0,"watchlisthideown":0,"watchlisthidepatrolled":0,"watchmoves":0,"wllimit":250,"variant":"en","language":"en","searchNs0":true,"searchNs1":false,"searchNs2":false,"searchNs3":false,"searchNs4":false,"searchNs5":false,"searchNs6":false,"searchNs7":false,"searchNs8":false,"searchNs9":false,"searchNs10":false,"searchNs11":false,"searchNs12":false,"searchNs13":false,"searchNs14":false,"searchNs15":false});;mw.user.tokens.set({"editToken":"+\\","watchToken":false});;mw.loader.state({"user.options":"ready","user.tokens":"ready"});
+	
+	/* cache key: hadesdb:resourceloader:filter:minify-js:4:99acc2c3ab516bb21085c70c2195f3df */
+}
+</script><script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-86226939-1', 'auto');
+  ga('set', 'anonymizeIp', true);
+  ga('send', 'pageview');
+
+</script>
+<script type="text/javascript" src="https://analytics.example.com/tracking.js"></script>
+<!-- Served in 0.088 secs. --></body></html>
